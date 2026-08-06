@@ -3,6 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Sprout, ShieldCheck, Gauge, Users } from "lucide-react";
 import { SplitChars } from "./SplitChars";
+import { Aurora } from "./Fx";
+
 import bg from "@/assets/partnering-bg.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
