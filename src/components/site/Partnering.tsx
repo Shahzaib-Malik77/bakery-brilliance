@@ -45,10 +45,14 @@ export function Partnering() {
       className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden bg-background py-20"
     >
       <img src={bg} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-black/65" />
+      <div className="absolute inset-0 bg-black/70" />
+      <Aurora />
 
       <div className="relative flex w-[90%] flex-col items-center md:w-[64%]">
-        <h2 className="font-accent mb-10 text-center text-[28px] uppercase leading-[1.4] text-primary md:text-[40px]">
+        <span className="font-manrope mb-4 rounded-full border border-gold/50 px-4 py-1 text-[10px] font-black uppercase tracking-[0.4em] text-gold">
+          Why us
+        </span>
+        <h2 className="font-accent gold-sweep mb-10 text-center text-[28px] uppercase leading-[1.4] md:text-[40px]">
           <SplitChars text="Partnering With Us" />
         </h2>
 
@@ -56,16 +60,20 @@ export function Partnering() {
           {CARDS.map(({ label, Icon }) => (
             <div
               key={label}
-              className="partner-card flex flex-col items-center gap-3 bg-black px-4 py-6 text-center md:gap-4 md:px-6 md:py-8"
+              className="partner-card tilt-card group relative flex flex-col items-center gap-3 overflow-hidden border border-gold/20 bg-black/80 px-4 py-6 text-center backdrop-blur-md md:gap-4 md:px-6 md:py-8"
             >
-              <Icon className="partner-icon h-10 w-10 text-gold md:h-12 md:w-12" strokeWidth={1.2} />
-              <span className="font-body text-[12px] capitalize tracking-wide text-primary md:text-[14px]">
+              <div className="absolute inset-0 -translate-y-full bg-gradient-to-b from-gold/25 to-transparent transition-transform duration-700 group-hover:translate-y-0" />
+              <span className="pulse-ring relative flex h-14 w-14 items-center justify-center rounded-full border border-gold/40">
+                <Icon className="partner-icon h-7 w-7 text-gold md:h-8 md:w-8" strokeWidth={1.2} />
+              </span>
+              <span className="font-body relative text-[12px] capitalize tracking-wide text-primary md:text-[14px]">
                 {label}
               </span>
             </div>
           ))}
         </div>
       </div>
+
     </section>
   );
 }
