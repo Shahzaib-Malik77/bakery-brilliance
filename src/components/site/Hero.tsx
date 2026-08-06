@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SplitChars } from "./SplitChars";
+import { Aurora } from "./Fx";
+
 
 const VIDEOS = [
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260515_113235_88e0d62e-8103-40c1-948e-f0a4f886ffd1.mp4",
