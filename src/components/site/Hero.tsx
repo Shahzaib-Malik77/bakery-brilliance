@@ -83,8 +83,8 @@ export function Hero() {
         </div>
 
         <h1
-          data-text="THE SMART BAKERY SOLUTION"
-          className="glitch pointer-events-none absolute inset-x-0 bottom-[48px] px-4 text-center font-accent text-[40px] leading-[1.1] text-primary md:bottom-[-26px] md:whitespace-nowrap md:px-0 md:text-[9.7vw] md:leading-none md:tracking-[-0.04em]"
+          className="pointer-events-none absolute inset-x-0 bottom-[48px] px-4 text-center font-accent text-[40px] leading-[1.1] text-primary drop-shadow-[0_0_40px_rgba(203,157,6,0.45)] md:bottom-[-26px] md:whitespace-nowrap md:px-0 md:text-[9.7vw] md:leading-none md:tracking-[-0.04em]"
+
         >
           <SplitChars text="THE SMART BAKERY SOLUTION" onDone={() => setH1Done(true)} />
         </h1>
