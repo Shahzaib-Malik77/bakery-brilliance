@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SplitChars } from "./SplitChars";
+import { Aurora } from "./Fx";
+
 
 const VIDEOS = [
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260515_113235_88e0d62e-8103-40c1-948e-f0a4f886ffd1.mp4",
@@ -57,16 +59,36 @@ export function Hero() {
         ))}
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
+        <div className="pointer-events-none absolute inset-0 opacity-70">
+          <Aurora />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 4px)",
+          }}
+        />
 
         <div className="pointer-events-none absolute inset-x-0 top-0" style={{ paddingTop: "calc(80px + 60px)" }}>
-          <p className="font-luxurious text-center text-[12vw] leading-none text-primary md:text-[3vw]">
+          <p className="font-luxurious text-center text-[12vw] leading-none text-gold drop-shadow-[0_0_30px_rgba(203,157,6,0.5)] md:text-[3vw]">
             <SplitChars text="for Professionals" start={h1Done} />
           </p>
         </div>
 
-        <h1 className="pointer-events-none absolute inset-x-0 bottom-[48px] px-4 text-center font-accent text-[40px] leading-[1.1] text-primary md:bottom-[-26px] md:whitespace-nowrap md:px-0 md:text-[9.7vw] md:leading-none md:tracking-[-0.04em]">
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-center">
+          <span className="font-manrope text-outline text-[16vw] font-black uppercase leading-none tracking-[-0.02em] opacity-40">
+            EST. 1998
+          </span>
+        </div>
+
+        <h1
+          className="pointer-events-none absolute inset-x-0 bottom-[48px] px-4 text-center font-accent text-[40px] leading-[1.1] text-primary drop-shadow-[0_0_40px_rgba(203,157,6,0.45)] md:bottom-[-26px] md:whitespace-nowrap md:px-0 md:text-[9.7vw] md:leading-none md:tracking-[-0.04em]"
+
+        >
           <SplitChars text="THE SMART BAKERY SOLUTION" onDone={() => setH1Done(true)} />
         </h1>
+
       </section>
     </div>
   );

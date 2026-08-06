@@ -177,3 +177,113 @@
 .marquee-mask {
   mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
 }
+
+/* ===== CRAZY LAYER ===== */
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-4%, 3%); }
+  40% { transform: translate(3%, -5%); }
+  60% { transform: translate(-2%, -3%); }
+  80% { transform: translate(5%, 2%); }
+}
+
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  animation: grain-shift 1.2s steps(3) infinite;
+}
+
+@keyframes aurora-drift {
+  0%   { transform: translate3d(-10%, -6%, 0) scale(1); }
+  33%  { transform: translate3d(12%, 8%, 0) scale(1.25); }
+  66%  { transform: translate3d(-6%, 14%, 0) scale(0.9); }
+  100% { transform: translate3d(-10%, -6%, 0) scale(1); }
+}
+
+.aurora-blob {
+  filter: blur(90px);
+  animation: aurora-drift 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes ticker-run {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker-run 28s linear infinite;
+}
+.ticker-track-rev {
+  animation: ticker-run 34s linear infinite reverse;
+}
+
+@keyframes glitch-a {
+  0%, 92%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  93% { clip-path: inset(8% 0 72% 0); transform: translate(-4px, -2px); }
+  95% { clip-path: inset(46% 0 33% 0); transform: translate(5px, 1px); }
+  97% { clip-path: inset(74% 0 6% 0); transform: translate(-3px, 2px); }
+}
+
+.glitch {
+  position: relative;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.glitch::before {
+  color: var(--gold);
+  animation: glitch-a 5s infinite steps(1);
+}
+.glitch::after {
+  color: oklch(0.75 0.16 200);
+  animation: glitch-a 5s 0.12s infinite steps(1);
+  mix-blend-mode: screen;
+}
+
+@utility gold-glow {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--gold) 45%, transparent),
+    0 0 42px -6px color-mix(in oklab, var(--gold) 60%, transparent);
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--gold) 75%, transparent);
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--gold);
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes hue-sweep {
+  from { background-position: 0% 50%; }
+  to { background-position: 200% 50%; }
+}
+.gold-sweep {
+  background-image: linear-gradient(100deg, var(--gold), oklch(0.95 0.05 95), var(--gold), oklch(0.6 0.13 60), var(--gold));
+  background-size: 200% 100%;
+  animation: hue-sweep 6s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tilt-card {
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.5s;
+}
+.tilt-card:hover {
+  transform: perspective(900px) rotateX(4deg) rotateY(-5deg) translateY(-8px) scale(1.02);
+}

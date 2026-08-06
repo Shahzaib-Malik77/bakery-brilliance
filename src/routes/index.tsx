@@ -6,6 +6,8 @@ import { Gallery } from "@/components/site/Gallery";
 import { About } from "@/components/site/About";
 import { Partnering } from "@/components/site/Partnering";
 import { Footer } from "@/components/site/Footer";
+import { Grain, ScrollProgress, CursorGlow, Ticker } from "@/components/site/Fx";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,14 +32,26 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="bg-background">
+    <main className="relative bg-background">
+      <Grain />
+      <ScrollProgress />
+      <CursorGlow />
       <Navbar />
       <FloatingNav />
       <Hero />
+      <Ticker
+        items={["Viennoiserie", "Frozen Bread", "Patisserie", "Savory", "Culinary Aid", "Ingredients"]}
+      />
       <Gallery />
+      <Ticker
+        variant="outline"
+        reverse
+        items={["Hong Kong", "Macau", "Taiwan", "Shanghai", "Guangzhou", "Beijing"]}
+      />
       <About />
       <Partnering />
       <Footer />
     </main>
   );
 }
+
