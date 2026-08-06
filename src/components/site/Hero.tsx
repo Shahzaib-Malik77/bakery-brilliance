@@ -71,7 +71,7 @@ export function Hero() {
         />
 
         <div className="pointer-events-none absolute inset-x-0 top-0" style={{ paddingTop: "calc(80px + 60px)" }}>
-          <p className="font-luxurious gold-sweep text-center text-[12vw] leading-none md:text-[3vw]">
+          <p className="font-luxurious text-center text-[12vw] leading-none text-gold drop-shadow-[0_0_30px_rgba(203,157,6,0.5)] md:text-[3vw]">
             <SplitChars text="for Professionals" start={h1Done} />
           </p>
         </div>
