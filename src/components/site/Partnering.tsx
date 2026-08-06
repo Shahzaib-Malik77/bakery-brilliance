@@ -54,7 +54,7 @@ export function Partnering() {
         <span className="font-manrope mb-4 rounded-full border border-gold/50 px-4 py-1 text-[10px] font-black uppercase tracking-[0.4em] text-gold">
           Why us
         </span>
-        <h2 className="font-accent gold-sweep mb-10 text-center text-[28px] uppercase leading-[1.4] md:text-[40px]">
+        <h2 className="font-accent mb-10 text-center text-[28px] uppercase leading-[1.4] text-gold drop-shadow-[0_0_30px_rgba(203,157,6,0.5)] md:text-[40px]">
           <SplitChars text="Partnering With Us" />
         </h2>
 
