@@ -28,7 +28,7 @@ export function SplitChars({ text, className, delay = 0, start = true, onDone }:
         ease: "power3.out",
         stagger: 0.03,
         delay: delay / 1000,
-        onComplete: onDone,
+        onComplete: () => onDone?.(),
       },
     );
     return () => {

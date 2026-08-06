@@ -48,7 +48,7 @@ export function Hero() {
               i === 0
                 ? undefined
                 : {
-                    clipPath: `ellipse(${5 + clips[i - 1] * 150}% ${8 + clips[i - 1] * 150}% at 50% 50%)`,
+                    clipPath: `ellipse(${5 + (clips[i - 1] ?? 0) * 150}% ${8 + (clips[i - 1] ?? 0) * 150}% at 50% 50%)`,
                   }
             }
           >
