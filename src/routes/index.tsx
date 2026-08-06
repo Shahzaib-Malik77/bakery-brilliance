@@ -30,14 +30,26 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="bg-background">
+    <main className="relative bg-background">
+      <Grain />
+      <ScrollProgress />
+      <CursorGlow />
       <Navbar />
       <FloatingNav />
       <Hero />
+      <Ticker
+        items={["Viennoiserie", "Frozen Bread", "Patisserie", "Savory", "Culinary Aid", "Ingredients"]}
+      />
       <Gallery />
+      <Ticker
+        variant="outline"
+        reverse
+        items={["Hong Kong", "Macau", "Taiwan", "Shanghai", "Guangzhou", "Beijing"]}
+      />
       <About />
       <Partnering />
       <Footer />
     </main>
   );
 }
+
