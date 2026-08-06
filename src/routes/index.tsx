@@ -6,6 +6,8 @@ import { Gallery } from "@/components/site/Gallery";
 import { About } from "@/components/site/About";
 import { Partnering } from "@/components/site/Partnering";
 import { Footer } from "@/components/site/Footer";
+import { Grain, ScrollProgress, CursorGlow, Ticker } from "@/components/site/Fx";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({

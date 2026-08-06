@@ -49,24 +49,34 @@ export function Gallery() {
     <section className="flex justify-center bg-white py-8 md:py-16">
       <div ref={gridRef} className="w-[90%] md:w-[65%]">
         <div className="grid grid-cols-2 gap-x-2 gap-y-10 min-[1000px]:grid-cols-4">
-          {ITEMS.map((item) => (
+          {ITEMS.map((item, idx) => (
             <figure
               key={item.label}
               className={`gallery-item p-1 ${item.wide ? "col-span-2 min-[1000px]:col-span-2" : ""}`}
             >
-              <div className="group relative w-full overflow-hidden" style={{ aspectRatio: item.wide ? "3/2" : "3/4" }}>
+              <div className="tilt-card group relative w-full overflow-hidden" style={{ aspectRatio: item.wide ? "3/2" : "3/4" }}>
                 <img
                   src={item.img}
                   alt={item.label}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[6000ms] ease-[cubic-bezier(0.22,0.61,0.36,1)] group-hover:scale-[1.2]"
                 />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <span className="font-manrope pointer-events-none absolute left-3 top-3 text-xs font-black tracking-[0.3em] text-gold opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <span className="font-accent pointer-events-none absolute bottom-3 left-3 right-3 translate-y-4 text-2xl text-primary opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  {item.label}
+                </span>
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 gold-glow" />
               </div>
-              <figcaption className="font-manrope mt-2 text-left text-sm font-medium text-black">
-                {item.label}
+              <figcaption className="font-manrope mt-2 flex items-center justify-between text-left text-sm font-medium text-black">
+                <span>{item.label}</span>
+                <span className="text-gold">✦</span>
               </figcaption>
             </figure>
           ))}
+
         </div>
       </div>
     </section>
