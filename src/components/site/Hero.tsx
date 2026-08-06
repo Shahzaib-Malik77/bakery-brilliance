@@ -39,7 +39,7 @@ export function Hero() {
 
   return (
     <div ref={wrapRef} className="relative" style={{ height: "calc(100vh + 300vh)" }}>
-      <section className="sticky top-0 h-screen w-full overflow-hidden">
+      <section className="sticky top-0 h-screen w-full overflow-visible">
         {VIDEOS.map((src, i) => (
           <div
             key={src}
